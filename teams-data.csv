@@ -30,7 +30,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2020,SFO,San Francisco 49ers,6,10,0,37.5,376,390,1.7,5.4,11.0,-2.4,20.0,-9.9,6.0,-2.1,23.0,27.9,,,0,https://www.pro-football-reference.com/teams/sfo/2020_roster.htm
 2020,TAM,Tampa Bay Buccaneers,11,5,0,68.75,492,355,0.8,31.5,2.0,19.8,3.0,-14.6,5.0,-2.9,26.0,1.5,WC,1.0,0,https://www.pro-football-reference.com/teams/tam/2020_roster.htm
 2020,TEN,Tennessee Titans,11,5,0,68.75,491,439,-1.7,2.9,14.0,18.4,4.0,11.1,29.0,-4.4,28.0,8.6,DW,,0,https://www.pro-football-reference.com/teams/oti/2020_roster.htm
-2020,WAS,Washington Football Team,7,9,0,43.75,335,329,-1.2,-2.3,16.0,-21.8,32.0,-18.3,3.0,1.1,15.0,-25.7,DW,,0,https://www.pro-football-reference.com/teams/was/2020_roster.htm
+2020,WFT,Washington Football Team,7,9,0,43.75,335,329,-1.2,,,,,,,,,,DW,,0,https://www.pro-football-reference.com/teams/was/2020_roster.htm
 2019,ARI,Arizona Cardinals,5,10,1,34.375,361,442,1.8,-5.8,20.0,3.8,13.0,7.2,23.0,-2.4,26.0,-40.4,,,0,https://www.pro-football-reference.com/teams/crd/2019_roster.htm
 2019,ATL,Atlanta Falcons,7,9,0,43.75,381,399,1.1,-5.0,17.0,2.0,15.0,4.4,20.0,-2.6,27.0,-3.0,,,0,https://www.pro-football-reference.com/teams/atl/2019_roster.htm
 2019,BAL,Baltimore Ravens,14,2,0,87.5,531,282,0.1,41.5,1.0,27.5,1.0,-12.7,4.0,1.3,10.0,17.0,DW,,0,https://www.pro-football-reference.com/teams/rav/2019_roster.htm
@@ -62,7 +62,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2019,SFO,San Francisco 49ers,13,3,0,81.25,479,310,0.4,27.9,5.0,7.2,7.0,-19.8,2.0,1.0,12.0,-20.3,DW,,0,https://www.pro-football-reference.com/teams/sfo/2019_roster.htm
 2019,TAM,Tampa Bay Buccaneers,7,9,0,43.75,458,449,-0.2,1.5,14.0,-7.3,21.0,-11.5,5.0,-2.8,28.0,-13.0,,,0,https://www.pro-football-reference.com/teams/tam/2019_roster.htm
 2019,TEN,Tennessee Titans,9,7,0,56.25,402,331,-1.0,8.6,9.0,12.9,6.0,1.0,16.0,-3.2,29.0,-4.9,WC,,0,https://www.pro-football-reference.com/teams/oti/2019_roster.htm
-2019,WAS,Washington Redskins,3,13,0,18.75,266,435,-0.2,-25.7,30.0,-20.5,30.0,7.9,24.0,2.7,6.0,-18.6,,,0,https://www.pro-football-reference.com/teams/was/2019_roster.htm
+2019,WFT,Washington Redskins,3,13,0,18.75,266,435,-0.2,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2019_roster.htm
 2018,ARI,Arizona Cardinals,3,13,0,18.75,225,425,1.0,-40.4,32.0,-40.9,32.0,0.5,17.0,1.0,11.0,-11.2,,,0,https://www.pro-football-reference.com/teams/crd/2018_roster.htm
 2018,ATL,Atlanta Falcons,7,9,0,43.75,414,423,0.4,-3.0,17.0,8.9,8.0,13.2,31.0,1.4,10.0,1.5,,,0,https://www.pro-football-reference.com/teams/atl/2018_roster.htm
 2018,BAL,Baltimore Ravens,10,6,0,62.5,389,287,0.6,17.0,6.0,0.9,15.0,-13.1,3.0,2.9,6.0,18.5,DW,,0,https://www.pro-football-reference.com/teams/rav/2018_roster.htm
@@ -94,7 +94,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2018,SFO,San Francisco 49ers,4,12,0,25.0,342,435,0.3,-20.3,30.0,-14.9,27.0,5.6,23.0,0.3,14.0,-8.3,,,0,https://www.pro-football-reference.com/teams/sfo/2018_roster.htm
 2018,TAM,Tampa Bay Buccaneers,5,11,0,31.25,396,464,1.7,-13.0,24.0,5.9,12.0,14.8,32.0,-4.1,28.0,-11.9,,,0,https://www.pro-football-reference.com/teams/tam/2018_roster.htm
 2018,TEN,Tennessee Titans,9,7,0,56.25,310,303,-0.2,-4.9,20.0,-5.2,22.0,0.6,18.0,0.8,13.0,-5.6,,,0,https://www.pro-football-reference.com/teams/oti/2018_roster.htm
-2018,WAS,Washington Redskins,7,9,0,43.75,281,359,-0.1,-18.6,29.0,-19.4,28.0,1.7,20.0,2.5,8.0,-0.5,,,0,https://www.pro-football-reference.com/teams/was/2018_roster.htm
+2018,WFT,Washington Redskins,7,9,0,43.75,281,359,-0.1,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2018_roster.htm
 2017,ARI,Arizona Cardinals,8,8,0,50.0,295,361,0.4,-11.2,22.0,-18.4,30.0,-12.6,4.0,-5.5,28.0,1.7,,,0,https://www.pro-football-reference.com/teams/crd/2017_roster.htm
 2017,ATL,Atlanta Falcons,10,6,0,62.5,353,315,1.9,1.5,15.0,8.2,9.0,5.6,22.0,-1.2,19.0,19.6,WC,,0,https://www.pro-football-reference.com/teams/atl/2017_roster.htm
 2017,BAL,Baltimore Ravens,9,7,0,56.25,395,303,-2.4,18.5,7.0,-4.5,21.0,-13.8,3.0,9.2,1.0,5.9,,,0,https://www.pro-football-reference.com/teams/rav/2017_roster.htm
@@ -126,7 +126,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2017,SFO,San Francisco 49ers,6,10,0,37.5,331,383,0.4,-8.3,20.0,-2.8,19.0,8.3,26.0,2.9,11.0,-19.7,,,0,https://www.pro-football-reference.com/teams/sfo/2017_roster.htm
 2017,TAM,Tampa Bay Buccaneers,5,11,0,31.25,335,382,1.7,-11.9,23.0,5.3,11.0,11.7,32.0,-5.5,29.0,-1.6,,,0,https://www.pro-football-reference.com/teams/tam/2017_roster.htm
 2017,TEN,Tennessee Titans,9,7,0,56.25,334,356,-2.1,-5.6,18.0,-2.1,18.0,5.1,21.0,1.6,13.0,3.9,WC,,0,https://www.pro-football-reference.com/teams/oti/2017_roster.htm
-2017,WAS,Washington Redskins,7,9,0,43.75,342,388,1.6,-0.5,16.0,-3.0,20.0,-4.9,11.0,-2.4,22.0,9.2,,,0,https://www.pro-football-reference.com/teams/was/2017_roster.htm
+2017,WFT,Washington Redskins,7,9,0,43.75,342,388,1.6,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2017_roster.htm
 2016,ARI,Arizona Cardinals,7,8,1,46.875,418,362,-1.9,1.7,16.0,-6.2,21.0,-13.9,3.0,-6.0,30.0,27.4,,,0,https://www.pro-football-reference.com/teams/crd/2016_roster.htm
 2016,ATL,Atlanta Falcons,11,5,0,68.75,540,406,0.1,19.6,3.0,25.3,1.0,8.1,27.0,2.4,8.0,-16.1,DW,,0,https://www.pro-football-reference.com/teams/atl/2016_roster.htm
 2016,BAL,Baltimore Ravens,8,8,0,50.0,343,321,0.2,5.9,12.0,-7.8,24.0,-9.3,6.0,4.4,4.0,-3.0,,,0,https://www.pro-football-reference.com/teams/rav/2016_roster.htm
@@ -158,7 +158,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2016,SFO,San Francisco 49ers,2,14,0,12.5,309,480,-0.5,-19.7,28.0,-7.4,23.0,12.1,28.0,-0.2,17.0,-27.4,,,0,https://www.pro-football-reference.com/teams/sfo/2016_roster.htm
 2016,TAM,Tampa Bay Buccaneers,9,7,0,56.25,354,369,0.7,-1.6,22.0,-2.9,18.0,-3.2,12.0,-2.0,21.0,-9.3,,,0,https://www.pro-football-reference.com/teams/tam/2016_roster.htm
 2016,TEN,Tennessee Titans,9,7,0,56.25,381,378,-1.2,3.9,13.0,10.5,9.0,5.5,24.0,-1.0,19.0,-26.5,,,0,https://www.pro-football-reference.com/teams/oti/2016_roster.htm
-2016,WAS,Washington Redskins,8,7,1,53.125,396,383,1.2,9.2,8.0,16.1,5.0,7.3,25.0,0.4,14.0,-0.3,,,0,https://www.pro-football-reference.com/teams/was/2016_roster.htm
+2016,WFT,Washington Redskins,8,7,1,53.125,396,383,1.2,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2016_roster.htm
 2015,ARI,Arizona Cardinals,13,3,0,81.25,489,313,1.3,27.4,3.0,15.8,4.0,-15.6,3.0,-4.0,29.0,-6.0,DW,,0,https://www.pro-football-reference.com/teams/crd/2015_roster.htm
 2015,ATL,Atlanta Falcons,8,8,0,50.0,339,345,-3.4,-16.1,26.0,-7.3,23.0,6.7,22.0,-2.1,22.0,-5.0,,,0,https://www.pro-football-reference.com/teams/atl/2015_roster.htm
 2015,BAL,Baltimore Ravens,5,11,0,31.25,328,401,2.6,-3.0,17.0,-5.3,20.0,5.1,20.0,7.3,1.0,22.2,,,0,https://www.pro-football-reference.com/teams/rav/2015_roster.htm
@@ -190,7 +190,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2015,SFO,San Francisco 49ers,5,11,0,31.25,238,387,3.8,-27.4,32.0,-13.9,28.0,9.9,27.0,-3.6,27.0,6.6,,,0,https://www.pro-football-reference.com/teams/sfo/2015_roster.htm
 2015,TAM,Tampa Bay Buccaneers,6,10,0,37.5,342,417,-3.0,-9.3,21.0,-1.4,18.0,3.3,18.0,-4.7,30.0,-28.4,,,0,https://www.pro-football-reference.com/teams/tam/2015_roster.htm
 2015,TEN,Tennessee Titans,3,13,0,18.75,299,423,-2.8,-26.5,31.0,-15.7,32.0,7.0,23.0,-3.8,28.0,-29.3,,,0,https://www.pro-football-reference.com/teams/oti/2015_roster.htm
-2015,WAS,Washington Redskins,9,7,0,56.25,388,379,-2.5,-0.3,15.0,1.9,12.0,5.4,21.0,3.2,6.0,-26.7,DW,,0,https://www.pro-football-reference.com/teams/was/2015_roster.htm
+2015,WFT,Washington Redskins,9,7,0,56.25,388,379,-2.5,,,,,,,,,,DW,,0,https://www.pro-football-reference.com/teams/was/2015_roster.htm
 2014,ARI,Arizona Cardinals,11,5,0,68.75,310,299,1.3,-6.0,22.0,-9.3,23.0,-5.5,7.0,-2.2,21.0,9.8,WC,,0,https://www.pro-football-reference.com/teams/crd/2014_roster.htm
 2014,ATL,Atlanta Falcons,6,10,0,37.5,381,417,-1.6,-5.0,20.0,7.2,11.0,15.2,32.0,3.0,9.0,-10.4,,,0,https://www.pro-football-reference.com/teams/atl/2014_roster.htm
 2014,BAL,Baltimore Ravens,10,6,0,62.5,409,302,-2.1,22.2,5.0,9.7,9.0,-4.6,8.0,8.0,2.0,-6.3,WC,,0,https://www.pro-football-reference.com/teams/rav/2014_roster.htm
@@ -222,7 +222,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2014,SFO,San Francisco 49ers,8,8,0,50.0,306,340,1.2,6.6,11.0,-0.4,16.0,-10.0,5.0,-3.0,24.0,17.4,,,0,https://www.pro-football-reference.com/teams/sfo/2014_roster.htm
 2014,TAM,Tampa Bay Buccaneers,2,14,0,12.5,277,410,-1.5,-28.4,30.0,-26.4,32.0,1.2,18.0,-0.8,17.0,-4.9,,,0,https://www.pro-football-reference.com/teams/tam/2014_roster.htm
 2014,TEN,Tennessee Titans,2,14,0,12.5,254,438,-0.3,-29.3,31.0,-16.3,29.0,11.2,29.0,-1.8,20.0,-5.9,,,0,https://www.pro-football-reference.com/teams/oti/2014_roster.htm
-2014,WAS,Washington Redskins,4,12,0,25.0,301,438,-0.2,-26.7,28.0,-11.7,28.0,9.6,27.0,-5.4,29.0,-26.3,,,0,https://www.pro-football-reference.com/teams/was/2014_roster.htm
+2014,WFT,Washington Redskins,4,12,0,25.0,301,438,-0.2,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2014_roster.htm
 2013,ARI,Arizona Cardinals,10,6,0,62.5,379,324,3.0,9.8,10.0,-2.6,20.0,-16.4,2.0,-4.0,27.0,-16.3,,,0,https://www.pro-football-reference.com/teams/crd/2013_roster.htm
 2013,ATL,Atlanta Falcons,4,12,0,25.0,353,443,2.9,-10.4,25.0,3.2,14.0,13.5,29.0,-0.1,18.0,9.1,,,0,https://www.pro-football-reference.com/teams/atl/2013_roster.htm
 2013,BAL,Baltimore Ravens,8,8,0,50.0,320,352,-1.5,-6.3,22.0,-21.3,30.0,-8.7,7.0,6.4,3.0,9.8,,,0,https://www.pro-football-reference.com/teams/rav/2013_roster.htm
@@ -254,7 +254,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2013,SFO,San Francisco 49ers,12,4,0,75.0,406,272,1.8,17.4,6.0,9.1,8.0,-4.6,13.0,3.7,7.0,29.9,WC,,0,https://www.pro-football-reference.com/teams/sfo/2013_roster.htm
 2013,TAM,Tampa Bay Buccaneers,4,12,0,25.0,288,389,3.6,-4.9,19.0,-10.5,24.0,-7.0,8.0,-1.5,22.0,-6.6,,,0,https://www.pro-football-reference.com/teams/tam/2013_roster.htm
 2013,TEN,Tennessee Titans,7,9,0,43.75,362,381,0.4,-5.9,20.0,1.3,16.0,4.0,19.0,-3.2,26.0,-29.3,,,0,https://www.pro-football-reference.com/teams/oti/2013_roster.htm
-2013,WAS,Washington Redskins,3,13,0,18.75,334,478,-0.3,-26.3,29.0,-10.0,23.0,4.3,22.0,-12.0,32.0,9.6,,,0,https://www.pro-football-reference.com/teams/was/2013_roster.htm
+2013,WFT,Washington Redskins,3,13,0,18.75,334,478,-0.3,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2013_roster.htm
 2012,ARI,Arizona Cardinals,5,11,0,31.25,250,357,3.5,-16.3,26.0,-31.0,32.0,-13.5,6.0,1.1,11.0,-18.9,,,0,https://www.pro-football-reference.com/teams/crd/2012_roster.htm
 2012,ATL,Atlanta Falcons,13,3,0,81.25,419,299,-1.1,9.1,10.0,6.1,12.0,-2.9,12.0,0.1,16.0,15.5,DW,,0,https://www.pro-football-reference.com/teams/atl/2012_roster.htm
 2012,BAL,Baltimore Ravens,10,6,0,62.5,398,344,-0.5,9.8,8.0,3.0,13.0,2.2,19.0,9.0,1.0,17.2,DW,1.0,0,https://www.pro-football-reference.com/teams/rav/2012_roster.htm
@@ -286,7 +286,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2012,SFO,San Francisco 49ers,11,4,1,71.875,397,273,2.5,29.9,4.0,17.0,5.0,-14.3,2.0,-1.5,20.0,19.0,DW,,0,https://www.pro-football-reference.com/teams/sfo/2012_roster.htm
 2012,TAM,Tampa Bay Buccaneers,7,9,0,43.75,389,394,0.3,-6.6,20.0,0.6,14.0,3.0,20.0,-4.3,28.0,-25.0,,,0,https://www.pro-football-reference.com/teams/tam/2012_roster.htm
 2012,TEN,Tennessee Titans,6,10,0,37.5,330,471,-1.2,-29.3,30.0,-20.5,29.0,7.4,25.0,-1.4,19.0,7.2,,,0,https://www.pro-football-reference.com/teams/oti/2012_roster.htm
-2012,WAS,Washington Redskins,10,6,0,62.5,436,388,0.4,9.6,9.0,15.3,6.0,1.8,17.0,-4.0,27.0,-5.9,DW,,0,https://www.pro-football-reference.com/teams/was/2012_roster.htm
+2012,WFT,Washington Redskins,10,6,0,62.5,436,388,0.4,,,,,,,,,,DW,,0,https://www.pro-football-reference.com/teams/was/2012_roster.htm
 2011,ARI,Arizona Cardinals,8,8,0,50.0,312,348,0.0,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/crd/2011_roster.htm
 2011,ATL,Atlanta Falcons,10,6,0,62.5,402,350,0.3,,,,,,,,,,WC,,0,https://www.pro-football-reference.com/teams/atl/2011_roster.htm
 2011,BAL,Baltimore Ravens,12,4,0,75.0,378,266,-0.9,,,,,,,,,,DW,,0,https://www.pro-football-reference.com/teams/rav/2011_roster.htm
@@ -318,7 +318,7 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2011,SFO,San Francisco 49ers,13,3,0,81.25,380,229,-1.1,,,,,,,,,,DW,,0,https://www.pro-football-reference.com/teams/sfo/2011_roster.htm
 2011,TAM,Tampa Bay Buccaneers,4,12,0,25.0,287,494,2.3,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/tam/2011_roster.htm
 2011,TEN,Tennessee Titans,9,7,0,56.25,325,317,-1.5,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/oti/2011_roster.htm
-2011,WAS,Washington Redskins,5,11,0,31.25,288,367,0.8,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2011_roster.htm
+2011,WFT,Washington Redskins,5,11,0,31.25,288,367,0.8,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2011_roster.htm
 2010,ARI,Arizona Cardinals,5,11,0,31.25,289,434,-3.6,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/crd/2010_roster.htm
 2010,ATL,Atlanta Falcons,13,3,0,81.25,414,288,-1.8,,,,,,,,,,DW,,0,https://www.pro-football-reference.com/teams/atl/2010_roster.htm
 2010,BAL,Baltimore Ravens,12,4,0,75.0,357,270,1.0,,,,,,,,,,WC,,0,https://www.pro-football-reference.com/teams/rav/2010_roster.htm
@@ -350,4 +350,4 @@ Yr,Tm,FullTm,W,L,T,WinPct,PF,PA,SoS,DVOA,DVOARank,OffDVOA,OffRank,DefDVOA,DefRan
 2010,SFO,San Francisco 49ers,6,10,0,37.5,305,346,-3.3,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/sfo/2010_roster.htm
 2010,TAM,Tampa Bay Buccaneers,10,6,0,62.5,341,318,-2.0,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/tam/2010_roster.htm
 2010,TEN,Tennessee Titans,6,10,0,37.5,356,339,0.0,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/oti/2010_roster.htm
-2010,WAS,Washington Redskins,6,10,0,37.5,302,377,0.9,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2010_roster.htm
+2010,WFT,Washington Redskins,6,10,0,37.5,302,377,0.9,,,,,,,,,,,,0,https://www.pro-football-reference.com/teams/was/2010_roster.htm

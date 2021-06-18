@@ -6,16 +6,17 @@ from bs4 import BeautifulSoup
 from bs4 import Comment
 import openpyxl
 import time
-import requests
-
+import ssl
 
 # Scrape player value data from PFR
 url = 'https://www.pro-football-reference.com'
 
+ssl._create_default_https_context = ssl._create_unverified_context
 maxp = 10000
 reccount = 0
 totalcount = 0
 skipped_count = 0
+minyear = 0
 
 # create dataframe to hold team abbreviations and correct teams that moved
 data = {'OrigTm':['ARI','ATL','BAL','BUF','CAR',
@@ -74,6 +75,9 @@ positionsdf = pd.DataFrame(data)
 column_names = ["Pos","PosGroup","PositionGroup"]
 dfnewpos = pd.DataFrame(columns = column_names)
 
+# create dataframe of starters
+column_names = ["UniqueKey","Starter"]
+starterdf = pd.DataFrame(columns = column_names)
 
 # open the teams data xlsx to get roster urls and update status
 teamsdatafilename = "teams-data.xlsx"
@@ -83,8 +87,8 @@ max_column=sheet_obj.max_column
 max_row=sheet_obj.max_row
 
 # read data from teams CSV
-if os.path.isfile('player-data.csv'):
-    player_data_df = pd.read_csv("player-data.csv")
+if os.path.isfile('player-data-inprocess.csv'):
+    player_data_df = pd.read_csv("player-data-inprocess.csv")
     print("Found player data file - creating unique list")
     # uniqueplayers = player_data_df.Player.unique()
     # playersdf = pd.DataFrame(uniqueplayers, columns = ["Player"])
@@ -102,7 +106,7 @@ for index in range(2, max_row + 1):
     column_names = ["Yr", "Player", "PlayerKey", "Age", "Tm", "Pos", "G", "GS", "AV"]
     df = pd.DataFrame(columns = column_names)
     year = sheet_obj.cell(row=index,column=2).value
-    team = sheet_obj.cell(row=index,column=4).value
+    team = sheet_obj.cell(row=index,column=3).value
     scrapedflag = sheet_obj.cell(row=index,column=23).value
     rosterurl = sheet_obj.cell(row=index,column=24).value
 
@@ -122,6 +126,7 @@ for index in range(2, max_row + 1):
         while attempt < maxretries:
             try:
                 r = requests.get(rosterurl)
+                # print(r)
             except Exception as e:
                 print("IncompleteRead, retrying...")
                 attempt += 1
@@ -129,9 +134,26 @@ for index in range(2, max_row + 1):
             else:
                 break
         soup = BeautifulSoup(r.content, 'html.parser')
-        comments = soup.find_all(string=lambda text: isinstance(text, Comment))
+        # Store list of starters so we can set the starter flag below
+        startertable = soup.find(lambda tag: tag.name=='table' and tag.has_attr('id') and tag['id']=="starters")
+        tempstarterdf = pd.read_html(str(startertable))[0]
+        tempstarterdf = tempstarterdf[(tempstarterdf.Player != "Offensive Starters")]
+        tempstarterdf = tempstarterdf[(tempstarterdf.Player != "Defensive Starters")]
+        tempstarterdf["Yr"] = year
+        tempstarterdf["OrigTm"] = team
+        tempstarterdf["Starter"] = 1
+        # Remove extra indictoars (pro bowl) from player name
+        tempstarterdf["Player"] = tempstarterdf["Player"].map(lambda x: x.rstrip('*+'))
+        tempstarterdf = pd.merge(tempstarterdf, tmabrevdf, on="OrigTm")
+        tempstarterdf["UniqueKey"] = tempstarterdf["Yr"].astype(str) + "-" + tempstarterdf["Tm"] + "-" + tempstarterdf["Player"]
+        # tempstarterdf = tempstarterdf[["Yr", "Tm", "Player", "UniqueKey", "Starter"]]
+        tempstarterdf = tempstarterdf[["UniqueKey", "Starter"]]
+        starterdf = starterdf.append(tempstarterdf, ignore_index=True)
 
+        # Pull the comments as this is where the full roster is
+        comments = soup.find_all(string=lambda text: isinstance(text, Comment))
         newsoup = BeautifulSoup(str(comments), 'html.parser')
+
         ptable = newsoup.find('table', attrs={'class':'per_match_toggle sortable stats_table'})
         ptable_body = ptable.find('tbody')
         for prow in ptable_body.find_all("tr"):
@@ -171,11 +193,12 @@ for index in range(2, max_row + 1):
                     # Need to get player position from top of page as yearly data is not reliable for position
                     maxretries = 10
                     attempt = 0
+                    # print("first request " + playerurl)
                     while attempt < maxretries:
                         try:
-                            tempr = requests.get(playerurl)
+                            tempr = requests.get(playerurl, verify=True) #, flavor="html5lib")
                         except Exception as e:
-                            print("IncompleteRead, retrying...")
+                            print("IncompleteRead 1, retrying...")
                             attempt += 1
                             time.sleep(5)
                         else:
@@ -200,7 +223,7 @@ for index in range(2, max_row + 1):
                             pdf = pd.read_html(playerurl)[0]
                         #except http.client.IncompleteRead:
                         except Exception as e:
-                            print("IncompleteRead, retrying...")
+                            print("IncompleteRead 2, retrying...")
                             attempt += 1
                             time.sleep(5)
                         else:
@@ -208,7 +231,6 @@ for index in range(2, max_row + 1):
 
                     # get rid of MultiIndex, just keep last row
                     pdf.columns = pdf.columns.get_level_values(-1)
-
                     # Add player name
                     pdf['Player'] = player
                     # Fix year by stripping pro bowl indicators
@@ -224,11 +246,15 @@ for index in range(2, max_row + 1):
                     # Add player URL key so we can uniquely match to players if they have the same name
                     pdf['PlayerKey'] = playerkey
 
-                    # remove career summary line as we on;y want the individual years
+                    # remove career summary line as we only want the individual years
                     pdf = pdf[pdf.Year != "Career"]
                     # prepare dataframe to be copied into end player dataframe
                     pdf = pdf[['Yr', 'Player', 'PlayerKey', 'Age', 'Tm', 'Pos', 'G', 'GS', 'AV']].copy()
                     pdf['Pos'] = pdf['Pos'].str.upper()
+                    # Fix team abbreviation to handle team moves
+                    pdf.rename(columns={"Tm": "OrigTm"}, inplace=True)
+                    pdf = pd.merge(pdf, tmabrevdf, on="OrigTm")
+                    pdf.drop(['OrigTm'], 1, inplace=True)
 
                     # Store in end dataframe to collect all players
                     df = df.append(pdf, ignore_index=True)
@@ -275,10 +301,6 @@ for index in range(2, max_row + 1):
         # Re-group positions into higher level groups for AV analysis
         df = pd.merge(df, positionsdf, on="PosGroup")
 
-        # Correct team abbreviation to handle team moves / name changes
-        df.rename(columns={"Tm": "OrigTm"}, inplace=True)
-        df = pd.merge(df, tmabrevdf, on="OrigTm")
-
         # Calculate an AV per game in case needed to account for missed playing time
         df['AVperG'] = df['AV'] / df['G']
         df['AVperG'] = df['AVperG'].round(decimals=2)
@@ -299,24 +321,75 @@ for index in range(2, max_row + 1):
         df['AdjAVper16G'] = df['AdjAVperG'] * 16
         df['AdjAVper16G'] = df['AdjAVper16G'].round(decimals=2)
 
+
+        ##### MOVE IN THE PREDICTION COLUMNS NEEDED here
+        # Add the playing year for each player
+        df["Yr"] = df["Yr"].astype(int)
+        df["CareerYr"] = df.groupby(["PlayerKey"])["Yr"].rank(ascending=True, method='dense')
+        # Create the 3 year avg AV column
+        df.sort_values(by=["Yr","PlayerKey"], ascending=[True, True], inplace=True)
+        df['3YrAvgAV']=df.groupby('Player').AdjAV.apply(lambda x : x.shift().rolling(3,min_periods=1).mean().fillna(x))
+        # Capture the player's prior season's AV which is what will be used for forward prediction
+        df.sort_values(by=["PlayerKey","Yr"], ascending=[True, True], inplace=True)
+        df['PriorYr16GAV'] = df.loc[df['PlayerKey'].shift(-1)==df['PlayerKey'], 'AVper16G']
+        df['PriorYr16GAV'] = df['PriorYr16GAV'].shift()
+        df['PriorYrAdj16GAV'] = df.loc[df['PlayerKey'].shift(-1)==df['PlayerKey'], 'AdjAVper16G']
+        df['PriorYrAdj16GAV'] = df['PriorYrAdj16GAV'].shift()
+        df.PriorYr16GAV.fillna(value=0, inplace=True)
+        df.PriorYrAdj16GAV.fillna(value=0, inplace=True)
+        # Need prior year games and games started to calculate prior year full year AV based on games started (not games played as above)
+        df['PriorYrG'] = df.loc[df['PlayerKey'].shift(-1)==df['PlayerKey'], 'G']
+        df['PriorYrG'] = df['PriorYrG'].shift()
+        df['PriorYrGS'] = df.loc[df['PlayerKey'].shift(-1)==df['PlayerKey'], 'GS']
+        df['PriorYrGS'] = df['PriorYrGS'].shift()
+        df.PriorYrG.fillna(value=0, inplace=True)
+        df.PriorYrGS.fillna(value=0, inplace=True)
+
+        # Create unique player year column which will be used to match to starter df at end
+        df['UniqueKey'] = df['Yr'].astype(str) + "-" + df['Tm'] + "-" + df['Player']
+
         # rearrange columns after adding the abbreviation
         df = df[["Yr", "Player", "PlayerKey", "Age", "Tm", "Pos", "PosGroup", "PositionGroup", "G", "GS", "AV", "AVperG", "AVper16G",
-                "AdjAV", "AdjAVperG", "AdjAVper16G"]]
+                "AdjAV", "AdjAVperG", "AdjAVper16G", "CareerYr", "3YrAvgAV", "PriorYr16GAV", "PriorYrAdj16GAV", "PriorYrG", "PriorYrGS", "UniqueKey"]]
         df = df.sort_values(by=['Tm','Yr','Player'], ascending=[True, False, True])
 
         # write this team and season of player data to player csv file
-        if not os.path.isfile('player-data.csv'):
-            df.to_csv('player-data.csv', header='column_names')
+        if not os.path.isfile('player-data-inprocess.csv'):
+            df.to_csv('player-data-inprocess.csv', header='column_names')
         else: # else it exists so append without writing the header
-            df.to_csv('player-data.csv', mode='a', header=False)
+            df.to_csv('player-data-inprocess.csv', mode='a', header=False)
+
+        # write this team and season of player data to player csv file
+        if not os.path.isfile('player-starter-data.csv'):
+            starterdf.to_csv('player-starter-data.csv', header='column_names')
+        else: # else it exists so append without writing the header
+            starterdf.to_csv('player-starter-data.csv', mode='a', header=False)
+
+        starterdf = starterdf[0:0]
 
         # Update flag in teams file to mark that we completed this team and season
-        scrapedflag_cell = sheet_obj.cell(row=index,column=22)
+        scrapedflag_cell = sheet_obj.cell(row=index,column=23)
         scrapedflag_cell.value = 1;
         wb_obj.save(teamsdatafilename)
 
     else:
         print("Skipping " + str(year) + " " + team + " - already scraped")
+
+# Set starters after everything finished
+df = pd.read_csv("player-data-inprocess.csv")
+print(df)
+df = df[(df.Yr <= 2020)]
+
+starterdf = pd.read_csv("player-starter-data.csv")
+print(starterdf)
+
+#df = pd.merge(df, starterdf, how='outer', on=['UniqueKey']) #left_on=['Yr','OrigTm','Player'], right_on = ['Yr','OrigTm','Player'])
+df = pd.merge(df, starterdf, how='outer', on=['UniqueKey'])
+df = df[["Yr", "Player", "PlayerKey", "Age", "Tm", "Pos", "PosGroup", "PositionGroup", "G", "GS", "AV", "AVperG", "AVper16G",
+        "AdjAV", "AdjAVperG", "AdjAVper16G", "CareerYr", "3YrAvgAV", "PriorYr16GAV", "PriorYrAdj16GAV", "PriorYrG", "PriorYrGS", "Starter"]]
+df = df.sort_values(by=['Tm','Yr','Player'], ascending=[True, False, True])
+# Write final CSV of all player and starter data
+df.to_csv('player-data-out.csv', header='column_names')
 
 print("\nFINAL...")
 print(str(totalcount) + " players scraped")
@@ -324,6 +397,9 @@ print(str(skipped_count) + " players skipped")
 
 # Display the positons scraped that are not in the set list above - these will need to be handled as PFR
 # adds any variation of positions on the season records. Add to the posdf dataframe above and re-run to correct any
-print("\nPositions not found")
 prefixes = ['Off','Def','ST']
-print(df[~df.PositionGroup.str.startswith(tuple(prefixes))])
+tdf = df[~df.PositionGroup.str.startswith(tuple(prefixes))]
+missingpos = len(tdf)
+if missingpos > 0:
+    print("\nPositions not found")
+    print(tdf)

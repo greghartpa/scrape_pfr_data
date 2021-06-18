@@ -12,7 +12,7 @@ endyear = 2010
 reccount = 0
 totalcount = 0
 
-# Read into team DVOA data to add to the team data for future analysis
+# Read in team DVOA data to add to the team data for future analysis
 dvoadf = pd.read_csv("teams-dvoa.csv")
 
 # create dataframe of teams
@@ -101,8 +101,8 @@ data = {'FullTm':['Arizona Cardinals','Atlanta Falcons','Baltimore Ravens','Buff
     'KAN','LVR','LAC','LAR','MIA',
     'MIN','NWE','NOR','NYG','NYJ',
     'LVR','PHI','PIT','LAC','SFO',
-    'SEA','LAR','TAM','TEN','WAS',
-    'WAS']}
+    'SEA','LAR','TAM','TEN','WFT',
+    'WFT']}
 tmabrevdf = pd.DataFrame(data)
 teamsdf = pd.merge(teamsdf, tmabrevdf, on="FullTm")
 
