@@ -18,15 +18,22 @@ Scrapes team summary and player approximate value (AV) data from profootballrefe
 * AV - player approximate value generated that season
 * AVperG - enriched (calculated) field of AV / games
 * AVper16G - enriched (calculated) field of AVperG * 16 (this will need to be updated to handle 2021's 17 game season). This is used to show a potential or full season equivalent player value
-* AdjAV - enriched (calculated) field to adjust what I believe is an AV flaw based on higher usage of nickel and dime defenses today (AV points are allocated 2/3 to the front seven in the PFR calculations, but this overstates AV for DL and LBs and understates AV for CB and S) 
-* AdjAVperG - same as AVperG but for AdjAV 
+* AdjAV - enriched (calculated) field to adjust what I believe is an AV flaw based on higher usage of nickel and dime defenses today (AV points are allocated 2/3 to the front seven in the PFR calculations, but this overstates AV for DL and LBs and understates AV for CB and S)
+* AdjAVperG - same as AVperG but for AdjAV
 * AdjAVper16G - same as AVper16G but for AdjAV
+* CareerYr - identifies how many years in the league (1 is a rookie, 2 is second year, etc)
+* 3YrAvgAV - average AV over 3 seasons (used in modeling projected output)
+* PriorYr16GAV - prior year projected full season AV (used in modeling projected output)
+* PriorYrAdj16GAV - prior year projected full season adjusted AV (used in modeling projected output)
+* PriorYrG - prior year games played
+* PriorYrGS - prior year games started
+* Starter - indicates who were starters
 
 ## Technologies
 * Python
 * Pandas
 * Numpy
-* BeautifulSoup 
+* BeautifulSoup
 * openpyxl
 
 ## Usage
