@@ -1,5 +1,8 @@
 # scrape_pfr_data
 
+## Credits / Sources
+Steve Morse - https://stmorse.github.io/journal/pfr-scrape-python.html
+
 ## Description
 Scrapes team summary and player approximate value (AV) data from profootballreference.com into CSVs for analysis. The end result will be an enriched data file of players by team and year with AV data. Columns include:
 * Yr - season
